@@ -10,13 +10,11 @@ class RespondusNestedFixture extends Respondus
     public int $id;
     public string $string;
 
-    public static function make(mixed $data, Options $options = new Options()): static
+    public function makeFromArray(mixed $data): self
     {
-        $response = new self($options);
+        $this->id = $data['id'];
+        $this->string = $data['string'];
 
-        $response->id = $data['id'];
-        $response->string = $data['string'];
-
-        return $response;
+        return $this;
     }
 }

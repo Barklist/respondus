@@ -21,7 +21,8 @@
   },
   "require": {
     "php": "^8.2",
-    "ext-json": "*"
+    "ext-json": "*",
+    "illuminate/support": "^10.0"
   },
   "require-dev": {
     "pestphp/pest": "^2.0",

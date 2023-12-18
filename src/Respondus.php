@@ -2,29 +2,47 @@
 
 namespace Elsuterino\Respondus;
 
+use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
 
-abstract class Respondus implements JsonSerializable
+/**
+ * @implements Arrayable<int|string, mixed>
+ */
+abstract class Respondus implements JsonSerializable, Arrayable
 {
-    public function __construct(private readonly Options $options)
+    public function __construct(protected Options $options = new Options())
     {
     }
 
-    abstract static function make(mixed $data, Options $options = new Options()): self;
+    /**
+     * @param  class-string<Respondus>  $respondus
+     */
+    public function setHidden(string $respondus, string $field): static
+    {
+        $this->options->setHidden($respondus, $field);
+
+        return $this;
+    }
 
     /**
-     * @return array<string, mixed>
+     * @return array<string|int, mixed>
      */
     public function jsonSerialize(): array
     {
-        $options  = $this->options ?? new Options();
-
         $array = get_object_vars(...)->__invoke($this);
 
-        foreach ($options->getHidden($this::class) as $field) {
+        foreach ($this->options->getHidden($this::class) as $field) {
             unset($array[$field]);
         }
 
         return json_decode(json_encode($array) ?: '{}', true);
+    }
+
+    /**
+     * @return array<int|string, mixed>
+     */
+    public function toArray(): array
+    {
+        return $this->jsonSerialize();
     }
 }

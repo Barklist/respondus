@@ -2,7 +2,6 @@
 
 namespace Tests\Fixtures;
 
-use Elsuterino\Respondus\Options;
 use Elsuterino\Respondus\Respondus;
 
 class RespondusFixture extends Respondus
@@ -11,14 +10,12 @@ class RespondusFixture extends Respondus
     public string $string;
     public RespondusNestedFixture $nested;
 
-    public static function make(mixed $data, Options $options = new Options()): static
+    public function makeFromArray(mixed $data): self
     {
-        $response = new self($options);
+        $this->id = $data['id'];
+        $this->string = $data['string'];
+        $this->nested = (new RespondusNestedFixture($this->options))->makeFromArray($data);
 
-        $response->id = $data['id'];
-        $response->string = $data['string'];
-        $response->nested = RespondusNestedFixture::make($data, $options);
-
-        return $response;
+        return $this;
     }
 }

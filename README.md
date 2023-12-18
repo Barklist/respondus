@@ -21,27 +21,17 @@ use Elsuterino\Respondus\Respondus;
 
 class UserResource extends Respondus
 {
-    public static function make(mixed $data, Options $options = new Options()): static
+    public function makeFromModel(User $user): self
     {
-        $resource = new self($options);
-        $resource->id = $data->id;
-        $resource->email = $data->email;
+        $this->id = $user->id;
+        $this->email = $user->email;
         // Additional fields...
-        return $resource;
+        return $this;
     }
     // Other class methods...
 }
 
-$options = Options::new()->setHidden(UserResource::class, 'email');
-$instance = UserResource::make($data, $options);
-$json = json_encode($instance);
-
-## Nesting Resources
-When working with nested resources, you can define hidden fields for each resource easily:
-```php
-$options = Options::new()
-             ->setHidden(UserResource::class, 'email')
-             ->setHidden(UserPostsResource::class, 'comments');
+$resource = (new UserResource)->makeFromModel($user)->setHidden(UserResource::class, 'email')->toArray();
 ```
 
 License

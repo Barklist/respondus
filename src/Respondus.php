@@ -10,7 +10,7 @@ abstract class Respondus implements JsonSerializable
     {
     }
 
-    abstract static function make(mixed $data, Options $options = new Options()): static;
+    abstract static function make(mixed $data, Options $options = new Options()): self;
 
     /**
      * @return array<string, mixed>

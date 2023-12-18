@@ -1,6 +1,8 @@
 {
   "name": "elsuterino/respondus",
   "description": "Typed resources.",
+  "keywords": ["laravel", "dto"],
+  "license": "MIT",
   "authors": [
     {
       "name": "Vytautas Riauka",

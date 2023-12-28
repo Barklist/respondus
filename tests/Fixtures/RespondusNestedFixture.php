@@ -2,8 +2,8 @@
 
 namespace Tests\Fixtures;
 
-use Elsuterino\Respondus\Options;
-use Elsuterino\Respondus\Respondus;
+use Barklis\Respondus\Options;
+use Barklis\Respondus\Respondus;
 
 class RespondusNestedFixture extends Respondus
 {

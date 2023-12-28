@@ -2,7 +2,7 @@
 
 namespace Tests\Fixtures;
 
-use Elsuterino\Respondus\Respondus;
+use Barklis\Respondus\Respondus;
 
 class RespondusFixture extends Respondus
 {

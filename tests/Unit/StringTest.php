@@ -1,6 +1,6 @@
 <?php
 
-use Elsuterino\Respondus\Options;
+use Barklis\Respondus\Options;
 use Tests\Fixtures\RespondusFixture;
 use Tests\Fixtures\RespondusNestedFixture;
 

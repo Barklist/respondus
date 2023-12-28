@@ -1,17 +1,17 @@
 {
-  "name": "elsuterino/respondus",
+  "name": "barklis/respondus",
   "description": "Typed resources.",
   "keywords": ["laravel", "dto"],
   "license": "MIT",
   "authors": [
     {
       "name": "Vytautas Riauka",
-      "email": "wytuxas@gmail.com"
+      "email": "vytautas.riauka@barklis.com"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Elsuterino\\Respondus\\": "src/"
+      "Barklis\\Respondus\\": "src/"
     }
   },
   "autoload-dev": {

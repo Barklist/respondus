@@ -1,6 +1,6 @@
 <?php
 
-namespace Elsuterino\Respondus;
+namespace Barklis\Respondus;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
